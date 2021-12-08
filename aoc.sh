@@ -2,12 +2,11 @@
 
 year=2021;
 
-# Get this from 'session' cookie in Chrome devtools
+# Export environment variables
 export $(egrep -v '^#' .env | xargs)
 
+# Create directory and file stubs
 directory=$(printf "%02d" $1)
-
-# Create directory and empty source files
 mkdir -p ./$directory
 cp ./template.js ./$directory/index.js
 touch ./$directory/instructions.txt
