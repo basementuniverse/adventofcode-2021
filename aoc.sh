@@ -9,8 +9,7 @@ directory=$(printf "%02d" $1)
 
 # Create directory and empty source files
 mkdir -p ./$directory
-touch ./$directory/part1.js
-touch ./$directory/part2.js
+cp ./template.js ./$directory/index.js
 touch ./$directory/instructions.txt
 
 # Get input

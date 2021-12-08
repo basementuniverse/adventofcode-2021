@@ -1,14 +1,17 @@
-// paste into devtools console when on input page
-(() => {
+const fs = require('fs');
+
+fs.readFile('input.txt', 'utf-8', (error, input) => {
+  if (error) { throw error; }
+
   const SIZE = 5;
-  const input = document.body.innerText.split('\n');
-  
+  input = input.split('\n');
+
   // parse input
   const numbers = input.shift().split(',').map(parseFloat);
   const boards = [];
   let board = [];
   input.shift();
-  input.forEach((line, idx) => {
+  input.forEach(line => {
     if (!line.trim()) {
       boards.push(board);
       board = [];
@@ -62,4 +65,4 @@
 
   console.log('part 1', wins.shift().total);
   console.log('part 2', wins.pop().total);
-})();
+});
